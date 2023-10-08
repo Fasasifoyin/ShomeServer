@@ -7,8 +7,15 @@ export const mail = async (req, res) => {
   let config = {
     service: "gmail",
     auth: {
-      user: process.env.EMAIL,
-      pass: process.env.PASSWORD,
+      type: "OAuth2",
+      user: process.env.USER,
+      clientId: process.env.CLIENT_ID,
+      clientSecret: process.env.CLIENT_SECRET,
+      refreshToken: process.env.REFRESH_TOKEN,
+      accessToken: process.env.ACCESS_TOKEN,
+      tls: {
+        rejectUnauthorized: false,
+      },
     },
   };
 
